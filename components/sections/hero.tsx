@@ -32,10 +32,10 @@ export function HeroSection() {
             className="text-center lg:text-left"
           >
             <h1 className="heading-display text-4xl md:text-5xl lg:text-6xl text-white leading-[1.1] mb-6">
-              The Contact Center Built for Quality Oversight
+              The Contact Center Built for AI Agent Oversight
             </h1>
             <p className="text-lg md:text-xl text-cp-slate-300 leading-relaxed mb-8 max-w-2xl mx-auto lg:mx-0">
-              Real-time visibility. Instant intervention. Complete accountability. ConnectPath gives supervisors the tools to monitor, coach, and ensure quality—across every agent and every interaction.
+              Real-time visibility. Instant intervention. Complete accountability. ConnectPath gives supervisors the tools to monitor, coach, and ensure quality—whether the agent on the line is a person or an AI, and across every interaction.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">

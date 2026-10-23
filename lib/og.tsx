@@ -3,7 +3,7 @@ import { readFile } from "node:fs/promises"
 import path from "node:path"
 
 export const OG_SIZE = { width: 1200, height: 630 }
-export const OG_ALT = "ConnectPath: The contact center built for quality oversight"
+export const OG_ALT = "ConnectPath: The contact center built for AI agent oversight"
 
 async function dataUrl(file: string, mime: string) {
   const buf = await readFile(path.join(process.cwd(), "public", file))
@@ -38,10 +38,10 @@ export async function renderOgImage() {
         <div style={{ display: "flex", alignItems: "center", gap: 48 }}>
           <div style={{ display: "flex", flexDirection: "column", width: 540 }}>
             <div style={{ fontSize: 60, fontWeight: 700, lineHeight: 1.1, letterSpacing: -1 }}>
-              The Contact Center Built for Quality Oversight
+              The Contact Center Built for AI Agent Oversight
             </div>
             <div style={{ fontSize: 26, marginTop: 24, color: "#475569", lineHeight: 1.35 }}>
-              Real-time visibility. Instant intervention. Complete accountability.
+              Real-time visibility. Instant intervention. Quality across human and AI agents.
             </div>
           </div>
           <div
