@@ -29,11 +29,11 @@ const jetbrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: 'ConnectPath | Contact Center AI Agent Oversight',
+    default: 'ConnectPath | Oversight for Human and AI Agents',
     template: '%s | ConnectPath'
   },
-  description: 'Real-time dashboards. Live coaching. Complete interaction history. ConnectPath is the contact center platform built for supervisors who keep quality high across both human and AI agents. Powered by AWS.',
-  keywords: ['Amazon Connect', 'contact center', 'supervisor dashboard', 'real-time monitoring', 'cloud contact center', 'ConnectPath', 'CloudHesive', 'quality oversight', 'AI agent oversight', 'SwarmControl'],
+  description: 'Real-time dashboards. Live coaching. Complete interaction history. ConnectPath is the contact center platform built for supervisors who keep quality high across a mixed fleet of human and AI agents. Powered by AWS.',
+  keywords: ['Amazon Connect', 'contact center', 'supervisor dashboard', 'real-time monitoring', 'cloud contact center', 'ConnectPath', 'CloudHesive', 'quality oversight', 'human and AI agent oversight', 'mixed agent fleet', 'SwarmControl'],
   authors: [{ name: 'CloudHesive' }],
   creator: 'CloudHesive',
   publisher: 'CloudHesive',
