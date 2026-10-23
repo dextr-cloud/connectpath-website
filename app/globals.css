@@ -1,0 +1,340 @@
+/* v15 restore - cache bust */
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@custom-variant dark (&:is(.dark *));
+
+/* ConnectPath Brand System */
+:root {
+  /* Navy Scale - Foundation */
+  --cp-navy-950: #000024;
+  --cp-navy-900: #0A1732;
+  --cp-navy-800: #131E35;
+  --cp-navy-700: #1A2A4A;
+  --cp-navy-600: #243860;
+  --cp-navy-500: #2E4878;
+  --cp-navy-400: #3D5F96;
+  --cp-navy-300: #5A7DB4;
+  --cp-navy-200: #8EADD4;
+  --cp-navy-100: #C4D6EA;
+  --cp-navy-50: #E9F3FA;
+  
+  /* Teal Scale - Signal/Accent */
+  --cp-teal-700: #057775;
+  --cp-teal-600: #069A98;
+  --cp-teal-500: #066968;
+  --cp-teal-400: #08BDBA;
+  --cp-teal-300: #3DD5D3;
+  --cp-teal-200: #9EE9E8;
+  --cp-teal-100: #D2F5F4;
+  --cp-teal-50: #ECFCFC;
+  
+  /* Cyan Scale - Interactive */
+  --cp-cyan-700: #006A9C;
+  --cp-cyan-600: #008FD0;
+  --cp-cyan-500: #008FD0;
+  --cp-cyan-400: #33A5D9;
+  --cp-cyan-300: #66BCE3;
+  --cp-cyan-200: #99D3ED;
+  --cp-cyan-100: #CCE9F6;
+  --cp-cyan-50: #E6F4FB;
+  
+  /* Semantic Colors */
+  --cp-success: #22C55E;
+  --cp-warning: #F1C21B;
+  --cp-danger: #ED4739;
+  --cp-info: #3B82F6;
+
+  /* Guide names for the same semantic colors (ui-style-guide.md) */
+  --cp-success-500: var(--cp-success);
+  --cp-warning-500: var(--cp-warning);
+  --cp-danger-500: var(--cp-danger);
+  --cp-info-500: var(--cp-info);
+  
+  /* Slate neutrals */
+  --cp-slate-950: #020617;
+  --cp-slate-900: #0f172a;
+  --cp-slate-800: #1e293b;
+  --cp-slate-700: #334155;
+  --cp-slate-600: #475569;
+  --cp-slate-500: #64748b;
+  --cp-slate-400: #94a3b8;
+  --cp-slate-300: #cbd5e1;
+  --cp-slate-200: #e2e8f0;
+  --cp-slate-100: #f1f5f9;
+  --cp-slate-50: #f8fafc;
+  
+  /* Semantic surface / text / border tokens (shared with the product theme) */
+  --cp-surface-0: #ffffff;
+  --cp-surface-1: var(--cp-slate-50);
+  --cp-surface-2: var(--cp-slate-100);
+  --cp-text-primary: var(--cp-slate-900);
+  --cp-text-secondary: var(--cp-slate-600);
+  --cp-text-muted: var(--cp-slate-500);
+  --cp-text-faint: var(--cp-slate-400);
+  --cp-border-default: var(--cp-slate-200);
+  --cp-border-strong: var(--cp-slate-300);
+
+  /* 4px spacing grid */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+
+  /* Brand Theme Tokens */
+  --background: var(--cp-slate-50);
+  --foreground: var(--cp-navy-900);
+  --card: #ffffff;
+  --card-foreground: var(--cp-navy-900);
+  --popover: #ffffff;
+  --popover-foreground: var(--cp-navy-900);
+  --primary: var(--cp-teal-400);
+  --primary-foreground: var(--cp-navy-950);
+  --secondary: var(--cp-navy-700);
+  --secondary-foreground: #ffffff;
+  --muted: var(--cp-slate-100);
+  --muted-foreground: var(--cp-slate-600);
+  --accent: var(--cp-navy-50);
+  --accent-foreground: var(--cp-navy-900);
+  --destructive: var(--cp-danger);
+  --destructive-foreground: #ffffff;
+  --border: var(--cp-slate-200);
+  --input: var(--cp-slate-200);
+  --ring: var(--cp-teal-400);
+  
+  /* Charts */
+  --chart-1: var(--cp-teal-400);
+  --chart-2: var(--cp-cyan-500);
+  --chart-3: var(--cp-navy-500);
+  --chart-4: var(--cp-warning);
+  --chart-5: #A56EFF;
+  
+  /* Radius */
+  --radius: 0.5rem;
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-2xl: 20px;
+  
+  /* Shadows */
+  --shadow-xs: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-sm: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  --shadow-card: 0 1px 2px rgba(15, 23, 42, 0.05), 0 1px 3px rgba(15, 23, 42, 0.04);
+  --shadow-raised: 0 1px 2px rgba(15, 23, 42, 0.04), 0 8px 24px -6px rgba(15, 23, 42, 0.1);
+  --ring-focus: 0 0 0 3px rgba(8, 189, 186, 0.22);
+  
+  /* Transitions */
+  --duration-fast: 150ms;
+  --duration-base: 250ms;
+  --duration-slow: 400ms;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.45, 0, 0.55, 1);
+  
+  /* Sidebar */
+  --sidebar: #ffffff;
+  --sidebar-foreground: var(--cp-navy-900);
+  --sidebar-primary: var(--cp-teal-400);
+  --sidebar-primary-foreground: var(--cp-navy-950);
+  --sidebar-accent: var(--cp-slate-100);
+  --sidebar-accent-foreground: var(--cp-navy-900);
+  --sidebar-border: var(--cp-slate-200);
+  --sidebar-ring: var(--cp-teal-400);
+}
+
+.dark {
+  --background: var(--cp-navy-900);
+  --foreground: #ffffff;
+  --card: var(--cp-navy-800);
+  --card-foreground: #ffffff;
+  --popover: var(--cp-navy-800);
+  --popover-foreground: #ffffff;
+  --primary: var(--cp-teal-400);
+  --primary-foreground: var(--cp-navy-950);
+  --secondary: var(--cp-navy-700);
+  --secondary-foreground: #ffffff;
+  --muted: var(--cp-navy-800);
+  --muted-foreground: var(--cp-slate-400);
+  --accent: var(--cp-navy-700);
+  --accent-foreground: #ffffff;
+  --destructive: var(--cp-danger);
+  --destructive-foreground: #ffffff;
+  --border: rgba(255, 255, 255, 0.06);
+  --input: var(--cp-navy-700);
+  --ring: var(--cp-teal-400);
+  
+  --sidebar: var(--cp-navy-800);
+  --sidebar-foreground: #ffffff;
+  --sidebar-primary: var(--cp-teal-400);
+  --sidebar-primary-foreground: var(--cp-navy-950);
+  --sidebar-accent: var(--cp-navy-700);
+  --sidebar-accent-foreground: #ffffff;
+  --sidebar-border: rgba(255, 255, 255, 0.06);
+  --sidebar-ring: var(--cp-teal-400);
+}
+
+@theme inline {
+  --font-sans: 'Plus Jakarta Sans', 'Plus Jakarta Sans Fallback', system-ui, sans-serif;
+  --font-serif: 'DM Serif Display', 'DM Serif Display Fallback', Georgia, serif;
+  --font-mono: 'JetBrains Mono', 'JetBrains Mono Fallback', monospace;
+  
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  
+  /* ConnectPath brand colors as Tailwind utilities */
+  --color-cp-slate-950: var(--cp-slate-950);
+  --color-cp-slate-900: var(--cp-slate-900);
+  --color-cp-slate-800: var(--cp-slate-800);
+  --color-cp-slate-700: var(--cp-slate-700);
+  --color-cp-slate-600: var(--cp-slate-600);
+  --color-cp-slate-500: var(--cp-slate-500);
+  --color-cp-slate-400: var(--cp-slate-400);
+  --color-cp-slate-300: var(--cp-slate-300);
+  --color-cp-slate-200: var(--cp-slate-200);
+  --color-cp-slate-100: var(--cp-slate-100);
+  --color-cp-slate-50: var(--cp-slate-50);
+  --color-cp-navy-950: var(--cp-navy-950);
+  --color-cp-navy-900: var(--cp-navy-900);
+  --color-cp-navy-800: var(--cp-navy-800);
+  --color-cp-navy-700: var(--cp-navy-700);
+  --color-cp-navy-600: var(--cp-navy-600);
+  --color-cp-navy-500: var(--cp-navy-500);
+  --color-cp-navy-400: var(--cp-navy-400);
+  --color-cp-navy-300: var(--cp-navy-300);
+  --color-cp-navy-200: var(--cp-navy-200);
+  --color-cp-navy-100: var(--cp-navy-100);
+  --color-cp-navy-50: var(--cp-navy-50);
+  
+  --color-cp-teal-700: var(--cp-teal-700);
+  --color-cp-teal-600: var(--cp-teal-600);
+  --color-cp-teal-500: var(--cp-teal-500);
+  --color-cp-teal-400: var(--cp-teal-400);
+  --color-cp-teal-300: var(--cp-teal-300);
+  --color-cp-teal-200: var(--cp-teal-200);
+  --color-cp-teal-100: var(--cp-teal-100);
+  --color-cp-teal-50: var(--cp-teal-50);
+  
+  --color-cp-cyan-700: var(--cp-cyan-700);
+  --color-cp-cyan-600: var(--cp-cyan-600);
+  --color-cp-cyan-500: var(--cp-cyan-500);
+  --color-cp-cyan-400: var(--cp-cyan-400);
+  --color-cp-cyan-300: var(--cp-cyan-300);
+  --color-cp-cyan-200: var(--cp-cyan-200);
+  --color-cp-cyan-100: var(--cp-cyan-100);
+  --color-cp-cyan-50: var(--cp-cyan-50);
+  
+  --color-cp-surface-0: var(--cp-surface-0);
+  --color-cp-surface-1: var(--cp-surface-1);
+  --color-cp-surface-2: var(--cp-surface-2);
+  --color-cp-text-primary: var(--cp-text-primary);
+  --color-cp-text-secondary: var(--cp-text-secondary);
+  --color-cp-text-muted: var(--cp-text-muted);
+  --color-cp-text-faint: var(--cp-text-faint);
+  --color-cp-border-default: var(--cp-border-default);
+  --color-cp-border-strong: var(--cp-border-strong);
+
+  --color-cp-success: var(--cp-success);
+  --color-cp-warning: var(--cp-warning);
+  --color-cp-danger: var(--cp-danger);
+  --color-cp-info: var(--cp-info);
+  
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  
+  /* Typography base styles */
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-sans font-semibold tracking-tight text-balance;
+  }
+  
+  .heading-display {
+    @apply font-serif font-normal;
+  }
+  
+  /* Focus states for accessibility */
+  *:focus-visible {
+    @apply outline-2 outline-offset-2 outline-primary;
+  }
+}
+
+@layer components {
+  /* Small uppercase label above a heading (matches .cp-eyebrow in the product theme) */
+  .cp-eyebrow {
+    @apply text-xs font-semibold uppercase tracking-[0.06em] text-cp-text-muted;
+  }
+}
+
+/* Custom utility classes */
+@layer utilities {
+  .text-gradient {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, var(--cp-teal-400) 0%, var(--cp-cyan-500) 100%);
+  }
+  
+  .bg-gradient-brand {
+    background-image: linear-gradient(135deg, var(--cp-navy-900) 0%, var(--cp-navy-800) 100%);
+  }
+  
+  .bg-gradient-hero {
+    background-image: linear-gradient(180deg, var(--cp-navy-50) 0%, #ffffff 100%);
+  }
+  
+  .shadow-glow {
+    box-shadow: 0 0 20px rgba(8, 189, 186, 0.3);
+  }
+  
+  .transition-brand {
+    transition: all var(--duration-base) var(--ease-out);
+  }
+  
+  .transition-fast {
+    transition: all var(--duration-fast) var(--ease-out);
+  }
+}
