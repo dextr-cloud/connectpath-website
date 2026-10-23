@@ -17,19 +17,11 @@ const trustBadges = [
 
 export function HeroSection() {
   return (
-    <section className="relative overflow-hidden bg-gradient-hero">
-      {/* Background pattern */}
-      <div className="absolute inset-0 opacity-[0.03]">
-        <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
-              <path d="M 40 0 L 0 0 0 40" fill="none" stroke="currentColor" strokeWidth="1"/>
-            </pattern>
-          </defs>
-          <rect width="100%" height="100%" fill="url(#grid)" />
-        </svg>
-      </div>
-      
+    <section className="relative overflow-hidden">
+      {/* Dark background, matching the other page heroes */}
+      <div className="absolute inset-0 bg-gradient-to-br from-cp-navy-900 via-cp-navy-800 to-cp-navy-900" />
+      <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-10" />
+
       <div className="relative max-w-7xl mx-auto px-6 py-20 lg:py-28">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Text content */}
@@ -39,10 +31,10 @@ export function HeroSection() {
             transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
             className="text-center lg:text-left"
           >
-            <h1 className="heading-display text-4xl md:text-5xl lg:text-6xl text-cp-navy-900 leading-[1.1] mb-6">
+            <h1 className="heading-display text-4xl md:text-5xl lg:text-6xl text-white leading-[1.1] mb-6">
               The Contact Center Built for Quality Oversight
             </h1>
-            <p className="text-lg md:text-xl text-cp-slate-600 leading-relaxed mb-8 max-w-2xl mx-auto lg:mx-0">
+            <p className="text-lg md:text-xl text-cp-slate-300 leading-relaxed mb-8 max-w-2xl mx-auto lg:mx-0">
               Real-time visibility. Instant intervention. Complete accountability. ConnectPath gives supervisors the tools to monitor, coach, and ensure quality—across every agent and every interaction.
             </p>
             
@@ -61,7 +53,7 @@ export function HeroSection() {
                 asChild 
                 variant="outline" 
                 size="lg" 
-                className="border-cp-navy-200 text-cp-navy-700 hover:bg-cp-navy-50 font-medium text-base px-8 h-12"
+                className="border-white/30 bg-transparent text-white hover:bg-white/10 hover:text-white font-medium text-base px-8 h-12"
               >
                 <Link href={DEMO_URL} target="_blank" rel="noopener noreferrer">
                   <Play className="mr-2 size-4" />
@@ -105,15 +97,15 @@ export function HeroSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
-          className="mt-16 pt-12 border-t border-cp-slate-200"
+          className="mt-16 pt-12 border-t border-white/10"
         >
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 lg:gap-12">
             {trustBadges.map((badge) => (
               <div key={badge.label} className="flex items-center gap-3 justify-center md:justify-start">
-                <div className="size-10 rounded-lg bg-cp-navy-50 flex items-center justify-center shrink-0">
-                  <badge.icon className="size-5 text-cp-navy-600" />
+                <div className="size-10 rounded-lg bg-white/10 flex items-center justify-center shrink-0">
+                  <badge.icon className="size-5 text-cp-teal-400" />
                 </div>
-                <span className="text-sm text-cp-slate-600 font-medium">{badge.label}</span>
+                <span className="text-sm text-cp-slate-300 font-medium">{badge.label}</span>
               </div>
             ))}
           </div>
