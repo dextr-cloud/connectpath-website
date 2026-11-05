@@ -17,11 +17,8 @@ const trustBadges = [
 
 export function HeroSection() {
   return (
-    <section className="relative overflow-hidden">
-      {/* Dark background, matching the other page heroes */}
-      <div className="absolute inset-0 bg-gradient-to-br from-cp-navy-900 via-cp-navy-800 to-cp-navy-900" />
-      <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-10" />
-
+    <section className="mesh-gradient">
+      {/* Dark mesh gradient, matching the other page heroes */}
       <div className="relative max-w-7xl mx-auto px-6 py-20 lg:py-28">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Text content */}

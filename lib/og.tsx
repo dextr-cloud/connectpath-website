@@ -33,7 +33,7 @@ export async function renderOgImage() {
         }}
       >
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={logo} width={400} height={64} alt="" />
+        <img src={logo} width={400} height={68} alt="" />
 
         <div style={{ display: "flex", alignItems: "center", gap: 48 }}>
           <div style={{ display: "flex", flexDirection: "column", width: 540 }}>

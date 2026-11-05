@@ -421,8 +421,8 @@ function ConnectPathLogo({ className }: { className?: string }) {
     <Image
       src="/logo.png"
       alt="ConnectPath"
-      width={565}
-      height={90}
+      width={1024}
+      height={173}
       priority
       className={cn("w-auto", className)}
     />

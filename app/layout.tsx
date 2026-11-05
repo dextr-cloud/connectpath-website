@@ -1,23 +1,25 @@
 /* Cache bust - v15 restore */
 import type { Metadata, Viewport } from 'next'
-import { Plus_Jakarta_Sans, DM_Serif_Display, JetBrains_Mono } from 'next/font/google'
+import { Figtree, Besley, JetBrains_Mono } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import { ClientLayout } from '@/components/client-layout'
 import { SITE_URL } from '@/lib/site'
 import './globals.css'
 
-const plusJakartaSans = Plus_Jakarta_Sans({ 
+const figtree = Figtree({ 
   subsets: ['latin'],
   variable: '--font-sans',
   display: 'swap',
   weight: ['300', '400', '500', '600', '700', '800']
 })
 
-const dmSerifDisplay = DM_Serif_Display({ 
+// h1 and h2 only, Regular 400 (italic allowed). Never bold.
+const besley = Besley({ 
   subsets: ['latin'],
   variable: '--font-serif',
   display: 'swap',
-  weight: ['400']
+  weight: ['400'],
+  style: ['normal', 'italic']
 })
 
 const jetbrainsMono = JetBrains_Mono({ 
@@ -76,7 +78,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={`${plusJakartaSans.variable} ${dmSerifDisplay.variable} ${jetbrainsMono.variable}`}>
+    <html lang="en" className={`${figtree.variable} ${besley.variable} ${jetbrainsMono.variable}`}>
       <body className="font-sans antialiased">
         <ClientLayout>
           {children}

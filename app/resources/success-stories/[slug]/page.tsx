@@ -43,9 +43,7 @@ export default async function SuccessStoryPage({ params }: PageProps) {
   return (
     <PageLayout>
       {/* Hero */}
-      <section className="relative py-16 lg:py-24 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-cp-navy-900 via-cp-navy-800 to-cp-navy-900" />
-        <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-10" />
+      <section className="mesh-gradient py-16 lg:py-24">
         <div className="max-w-7xl mx-auto px-6 relative z-10">
           <div className="max-w-3xl">
             <Link

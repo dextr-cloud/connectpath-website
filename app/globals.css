@@ -180,8 +180,8 @@
 }
 
 @theme inline {
-  --font-sans: 'Plus Jakarta Sans', 'Plus Jakarta Sans Fallback', system-ui, sans-serif;
-  --font-serif: 'DM Serif Display', 'DM Serif Display Fallback', Georgia, serif;
+  --font-sans: 'Figtree', 'Figtree Fallback', system-ui, sans-serif;
+  --font-serif: 'Besley', 'Besley Fallback', Georgia, serif;
   --font-mono: 'JetBrains Mono', 'JetBrains Mono Fallback', monospace;
   
   --color-background: var(--background);
@@ -293,6 +293,10 @@
   h1, h2, h3, h4, h5, h6 {
     @apply font-sans font-semibold tracking-tight text-balance;
   }
+
+  h1, h2 {
+    @apply font-serif font-normal;
+  }
   
   .heading-display {
     @apply font-serif font-normal;
@@ -336,5 +340,39 @@
   
   .transition-fast {
     transition: all var(--duration-fast) var(--ease-out);
+  }
+}
+
+/* Design team revision: all h1 and h2 are Besley Regular 400, never bold.
+   Unlayered + !important so per-page font-bold / font-semibold utilities cannot override it. */
+h1,
+h2 {
+  font-family: var(--font-serif) !important;
+  font-weight: 400 !important;
+}
+
+/* Dark mesh gradient (design team), replaces the graph-paper hero backgrounds.
+   Put .mesh-gradient on the section; content needs position: relative + z-10. */
+@layer components {
+  .mesh-gradient {
+    --_gradient-blend-mode: normal;
+    --_gradient-blur: 0px;
+    --_gradient: radial-gradient(at 90% 20%, #0a1732 0px, transparent 50%),
+      radial-gradient(at 12.5% 92.7%, #0a1732 0px, transparent 50%),
+      radial-gradient(at 11.7% 11.5%, #104d7a 0px, transparent 50%),
+      radial-gradient(at 56.1% 57.7%, #008fd0e6 0px, transparent 50%),
+      radial-gradient(at 94.7% 97.7%, #08bdbae6 0px, transparent 50%);
+    position: relative;
+    overflow: clip;
+    background: var(--_gradient) #000000;
+    background-blend-mode: var(--_gradient-blend-mode);
+  }
+
+  .mesh-gradient .frosted-backdrop {
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    backdrop-filter: blur(var(--_gradient-blur));
+    -webkit-backdrop-filter: blur(var(--_gradient-blur));
   }
 }

@@ -63,14 +63,14 @@ const footerLinks = {
 }
 
 function ConnectPathLogoFooter({ className }: { className?: string }) {
-  // The docs-site logo has a dark wordmark; render it as a white silhouette on the navy footer.
+  // Color Knockout logo (white wordmark) for the navy footer.
   return (
     <Image
-      src="/logo.png"
+      src="/logo-knockout.png"
       alt="ConnectPath"
-      width={565}
-      height={90}
-      className={`w-auto brightness-0 invert ${className ?? ""}`}
+      width={1024}
+      height={173}
+      className={`w-auto ${className ?? ""}`}
     />
   )
 }
